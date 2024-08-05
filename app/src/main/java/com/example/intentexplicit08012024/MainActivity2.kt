@@ -21,7 +21,11 @@ class MainActivity2 : AppCompatActivity() {
         // Get data intent
 
         // 1: String
-        val textData = intent.getStringExtra("string")
-        Toast.makeText(this, textData, Toast.LENGTH_LONG).show()
+        // val textData = intent.getStringExtra("string")
+
+        // 2: Int array
+        val intArrayData = intent.getIntArrayExtra("int_array")
+
+        Toast.makeText(this, intArrayData?.size.toString(), Toast.LENGTH_LONG).show()
     }
 }

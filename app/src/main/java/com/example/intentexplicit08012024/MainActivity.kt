@@ -23,10 +23,15 @@ class MainActivity : AppCompatActivity() {
 
         btnSendData = findViewById(R.id.button_send_data_by_intent)
         btnSendData?.setOnClickListener {
-            // 1: String
             val intent = Intent(this@MainActivity, MainActivity2::class.java)
-            intent.putExtra("string", "Hello")
+            // 1: String
+            // intent.putExtra("string", "Hello")
+
+            // 2: Array
+            intent.putExtra("int_array", IntArray(5) { it })
+
             startActivity(intent)
+
         }
     }
 }
