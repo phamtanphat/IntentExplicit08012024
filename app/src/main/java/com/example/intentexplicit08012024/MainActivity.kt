@@ -1,5 +1,6 @@
 package com.example.intentexplicit08012024
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
@@ -22,7 +23,10 @@ class MainActivity : AppCompatActivity() {
 
         btnSendData = findViewById(R.id.button_send_data_by_intent)
         btnSendData?.setOnClickListener {
-
+            // 1: String
+            val intent = Intent(this@MainActivity, MainActivity2::class.java)
+            intent.putExtra("string", "Hello")
+            startActivity(intent)
         }
     }
 }
