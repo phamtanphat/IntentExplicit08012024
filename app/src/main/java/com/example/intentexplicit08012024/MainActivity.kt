@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import java.io.Serializable
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,10 +29,12 @@ class MainActivity : AppCompatActivity() {
             // intent.putExtra("string", "Hello")
 
             // 2: Array
-            intent.putExtra("int_array", IntArray(5) { it })
+            // intent.putExtra("int_array", IntArray(5) { it })
+
+            // 3: Object
+            intent.putExtra("object", User("teo", 3))
 
             startActivity(intent)
-
         }
     }
 }
