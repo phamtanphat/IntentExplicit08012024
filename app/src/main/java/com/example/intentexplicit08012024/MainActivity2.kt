@@ -28,12 +28,19 @@ class MainActivity2 : AppCompatActivity() {
         // val intArrayData = intent.getIntArrayExtra("int_array")
 
         // 3: Object
-        val objectData = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getSerializableExtra("object", User::class.java)
+//        Serializable
+//        val objectData = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+//            intent.getSerializableExtra("object", User::class.java)
+//        } else {
+//            intent.getSerializableExtra("object") as User
+//        }
+
+        val listObject: ArrayList<User?>? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableArrayListExtra("object", User::class.java)
         } else {
-            intent.getSerializableExtra("object") as User
+            intent.getParcelableArrayListExtra("object")
         }
 
-        Toast.makeText(this, objectData?.name, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, listObject?.firstOrNull()?.name, Toast.LENGTH_LONG).show()
     }
 }
